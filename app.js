@@ -7,9 +7,7 @@ const app = express()
 app.set('port', (process.env.PORT || 5000))
 
 
-app.get('/', (req, res) => {
-    res.send("Hi there")
-})
+app.use(express.static(path.join(__dirname, "public")))
 
 const server = app.listen(app.get('port'), () => {
     let port = server.address().port
